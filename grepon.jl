@@ -1,5 +1,6 @@
 import GitHub
 import Dates
+import Plots
 
 if length(ARGS) <= 2
     return
@@ -24,4 +25,10 @@ for repo in repos
     end
 end
 
-println(range)
+arr = collect(range)
+sort!(arr, by = x -> x.first)
+
+count = map(x -> Pair(x.first, length(x.second)), arr)
+println(count)
+
+plot = Plots.plot(map(x -> x.first, count), map(x -> x.second, count))
