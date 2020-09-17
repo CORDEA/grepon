@@ -32,3 +32,4 @@ count = map(x -> Pair(x.first, length(x.second)), arr)
 println(count)
 
 plot = Plots.plot(map(x -> x.first, count), map(x -> x.second, count))
+Plots.png(plot, "plot.png")
