@@ -14,7 +14,7 @@ repos, next = GitHub.repos(owner; auth = auth, params = params)
 range = Dict()
 date = floor(Dates.now() + Dates.Month(1), Dates.Month)
 for repo in repos
-    if date <= repo.created_at + Dates.Month(1)
+    if date > repo.created_at
        global date -= Dates.Month(1)
     end
     if haskey(range, date)
