@@ -31,5 +31,11 @@ sort!(arr, by = x -> x.first)
 count = map(x -> Pair(x.first, length(x.second)), arr)
 println(count)
 
-plot = Plots.plot(map(x -> x.first, count), map(x -> x.second, count))
+x = map(x -> x.first, count)
+y = map(x -> x.second, count)
+
+plot = Plots.plot(x, y)
+bar = Plots.bar(rand(50))
+
 Plots.png(plot, "plot.png")
+Plots.png(bar, "bar.png")
